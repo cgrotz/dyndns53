@@ -9,16 +9,16 @@ use std::str;
 #[tokio::main]
 async fn main() {
     let args: Vec<String> = env::args().collect();
-    if args.len() != 2 {
-        println!("Usage dyndns53 <hosted_zone_id> <domain>");
+    if args.len() != 3 {
+        println!("Usage dyndns53 <hosted_zone_id> <domain> arguments passed {}", args.len());
         return;
     }
-    let hosted_zone_id = &args[0];
+    let hosted_zone_id = &args[1];
     if hosted_zone_id.is_empty() {
         println!("Hosted zone cannot be empty");
         return;
     }
-    let domain = &args[1];
+    let domain = &args[2];
     if domain.is_empty() {
         println!("Domain cannot be empty");
         return;
